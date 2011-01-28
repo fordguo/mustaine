@@ -27,8 +27,8 @@ class ProtocolError(Exception):
 
 class HessianProxy(object):
 
-    def __init__(self, service_uri, credentials=None, key_file=None, cert_file=None, timeout=10, buffer_size=65535, error_factory=lambda x: x, overload=False):
-        self._headers = list()
+    def __init__(self, service_uri,credentials=None, key_file=None, cert_file=None, timeout=10, buffer_size=65535, error_factory=lambda x: x, overload=False,headers=[]):
+        self._headers = list(headers)
         self._headers.append(('User-Agent', 'mustaine/' + __version__,))
         self._headers.append(('Content-Type', 'application/x-hessian',))
 
